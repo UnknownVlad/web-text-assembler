@@ -1,0 +1,80 @@
+<!--{% load static %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Анализ текста</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      body {
+        background-color: #212529;
+      }
+    </style>
+</head>
+<body>
+<div class="container py-3 mb-5">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-blockquote-left" viewBox="0 0 16 16">
+            <path d="M2.5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm5 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm-5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm.79-5.373c.112-.078.26-.17.444-.275L3.524 6c-.122.074-.272.17-.452.287-.18.117-.35.26-.51.428a2.425 2.425 0 0 0-.398.562c-.11.207-.164.438-.164.692 0 .36.072.65.217.873.144.219.385.328.72.328.215 0 .383-.07.504-.211a.697.697 0 0 0 .188-.463c0-.23-.07-.404-.211-.521-.137-.121-.326-.182-.568-.182h-.282c.024-.203.065-.37.123-.498a1.38 1.38 0 0 1 .252-.37 1.94 1.94 0 0 1 .346-.298zm2.167 0c.113-.078.262-.17.445-.275L5.692 6c-.122.074-.272.17-.452.287-.18.117-.35.26-.51.428a2.425 2.425 0 0 0-.398.562c-.11.207-.164.438-.164.692 0 .36.072.65.217.873.144.219.385.328.72.328.215 0 .383-.07.504-.211a.697.697 0 0 0 .188-.463c0-.23-.07-.404-.211-.521-.137-.121-.326-.182-.568-.182h-.282a1.75 1.75 0 0 1 .118-.492c.058-.13.144-.254.257-.375a1.94 1.94 0 0 1 .346-.3z"/>
+        </svg>
+        <span class="fs-4 px-3 text-warning">Главная</span>
+      </a>
+
+      <ul class="nav nav-pills mb-4 mt-4">
+        <li class="nav-item"><button type="button" class="btn btn-outline-light me-5 fs-5" onclick="document.location='/login'">Авторизация</button></li>
+        <li class="nav-item"><button type="button" class="btn btn-warning fs-5" onclick="document.location='/registration'">Регистрация</button></li>
+      </ul>
+    </header>
+</div>
+
+<!--<header class="p-5 bg-dark text-white">-->
+
+<!--  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">-->
+<!--      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none px-4">-->
+<!--        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">-->
+<!--            <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>-->
+<!--        </svg>-->
+<!--      </a>-->
+<!--      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 fs-3">-->
+<!--        <li><a href="/" class="nav-link px-5 text-warning">Главная</a></li>-->
+<!--      </ul>-->
+<!--      <div class="col-md-5 text-end">-->
+<!--        <button type="button" class="btn btn-outline-light me-5 fs-5" onclick="document.location='/login'">Авторизация</button>-->
+<!--        <button type="button" class="btn btn-warning fs-5" onclick="document.location='/registration'">Регистрация</button>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--</header>-->
+
+<nav class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main class="px-5 text-white">
+<!--    <h1>Проанализируй любой текст.</h1>-->
+<!--    <p class="lead">Токенизация — это процесс разбиения текста на более мелкие части, такие как слова или предложения. Это первый шаг в анализе текста, который позволяет преобразовать непрерывный текст в дискретные элементы, с которыми можно работать отдельно. Этот процесс помогает в выявлении ключевых слов и фраз, а также в упрощении последующего анализа текста.-->
+<!--Токенизация полезна в задачах, где необходимо анализировать отдельные слова или фразы, например, при определении ключевых слов в тексте, анализе частотности слов или при обучении моделей машинного обучения для классификации текста.-->
+<!--        Стемминг — это процесс сведения слов к их основной (корневой) форме, удаляя окончания и суффиксы. Это помогает уменьшить сложность текста и улучшить производительность алгоритмов анализа. Стемминг наиболее полезен в задачах, где важно уменьшить разнообразие словоформ, например, при индексации текста для поисковых систем, в аналитике текстов большого объема и при обучении моделей машинного обучения для классификации или кластеризации текстов.-->
+<!--        В отличие от стемминга, лемматизация сводит слова к их лемме — это более сложный процесс, который учитывает морфологический анализ слов. Лемматизация более точно обрабатывает слова, приводя их к словарной форме. Лемматизация важна в задачах, где требуется высокая точность обработки текста, таких как машинный перевод, семантический анализ текста и создание систем вопросов-ответов, где важно точно понимать значение слов в контексте.-->
+<!--        Воспользуйтесь инструментом, чтобы изучить, как будет использоваться определенный фрагмент текста, а также общее количество слов, символов и токенов.</p><p class="lead">-->
+        <h1 class="px-5">Проанализируй любой текст</h1>
+    <p class="lead px-5 fs-4">
+        Воспользуйтесь инструментом, чтобы изучить, как будет использоваться определенный фрагмент текста, а также общее количество слов, символов и токенов.
+    </p><p class="lead">
+        <p class="lead px-5 fs-4 text-warning">
+        Чтобы получить доступ к функции - зарегистрируйся!
+    </p><p class="lead"><img src="https://cdn.icon-icons.com/icons2/2017/PNG/512/bear_animal_icon_123595.png"
+                alt="Avatar" class="img-fluid my-5" style="width: 100px;" />
+    </p>
+</main>
+</div>
+</nav>
+
+
+
+<!--    <h1>hihi</h1>-->
+<!--    <a href="/registration">регистрация</a>-->
+<!--    <a href="/login">авторизация</a>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
